@@ -1,0 +1,228 @@
+[
+  {
+    "name": "Workset",
+    "id": 110000,
+    "link": "/",
+    "icon": "fa-address-book"
+  },
+  {
+    "name": "Layouts",
+    "id": 120000,
+    "link": "/layouts",
+    "icon": "fa-address-book",
+    "children": [
+      {
+        "name": "Color option",
+        "id": 110100,
+        "link": "/layouts/ColorOption",
+        "icon": ""
+      },
+      {
+        "name": "Right nav",
+        "id": 110200,
+        "link": "/layouts/RightNav",
+        "icon": ""
+      },
+      {
+        "name": "H-Layout",
+        "id": 110300,
+        "link": "/layouts/HLayout",
+        "icon": ""
+      }
+    ]
+  },
+  {
+    "name": "UI kit",
+    "id": 130000,
+    "link": "/ui",
+    "icon": "fa-address-book",
+    "children": [
+      {
+        "name": "Buttons",
+        "id": 130100,
+        "link": "/ui/Buttons",
+        "icon": ""
+      },
+      {
+        "name": "Icons",
+        "id": 130200,
+        "link": "/ui/Icons",
+        "icon": ""
+      },
+      {
+        "name": "Grid",
+        "id": 130300,
+        "link": "/ui/Grid",
+        "icon": ""
+      },
+      {
+        "name": "Widgets",
+        "id": 130400,
+        "link": "/ui/Widgets",
+        "icon": ""
+      },
+      {
+        "name": "Components",
+        "id": 130500,
+        "link": "/ui/Components",
+        "icon": ""
+      },
+      {
+        "name": "List group",
+        "id": 130600,
+        "link": "/ui/ListGroup",
+        "icon": ""
+      },
+      {
+        "name": "Table",
+        "id": 130700,
+        "link": "/ui/table",
+        "icon": "",
+        "children": [
+          {
+            "name": "Table static",
+            "id": 130701,
+            "link": "/ui/table/TableStatic",
+            "icon": ""
+          },
+          {
+            "name": "Datatable",
+            "id": 130702,
+            "link": "/ui/table/DataTable",
+            "icon": ""
+          },
+          {
+            "name": "Datagrid",
+            "id": 130703,
+            "link": "/ui/table/DataGrid",
+            "icon": ""
+          }
+        ]
+      },
+      {
+        "name": "Form",
+        "id": 130800,
+        "link": "/ui/form",
+        "icon": "",
+        "children": [
+          {
+            "name": "Form elements",
+            "id": 130801,
+            "link": "/ui/form/FormElements",
+            "icon": ""
+          },
+          {
+            "name": "Form validation",
+            "id": 130802,
+            "link": "/ui/form/FormValidation",
+            "icon": ""
+          },
+          {
+            "name": "Form wizard",
+            "id": 130803,
+            "link": "/ui/form/FormWizard",
+            "icon": ""
+          }
+        ]
+      },
+      {
+        "name": "Fullcalendar",
+        "id": 130900,
+        "link": "/ui/FullCalendar",
+        "icon": ""
+      },
+      {
+        "name": "Protlet",
+        "id": 131000,
+        "link": "/ui/Protlet",
+        "icon": ""
+      },
+      {
+        "name": "Timeline",
+        "id": 131100,
+        "link": "/ui/TimeLine",
+        "icon": ""
+      }
+    ]
+  },
+  {
+    "name": "Pages",
+    "id": 140000,
+    "link": "/pages",
+    "icon": "fa-address-book",
+    "children": [
+      {
+        "name": "Gallery",
+        "id": 140100,
+        "link": "/pages/Gallery",
+        "icon": ""
+      },
+      {
+        "name": "Profile",
+        "id": 140200,
+        "link": "/pages/Profile",
+        "icon": ""
+      },
+      {
+        "name": "Invoice",
+        "id": 140300,
+        "link": "/pages/Invoice",
+        "icon": ""
+      },
+      {
+        "name": "Invoice",
+        "id": 140400,
+        "link": "/pages/Invoice",
+        "icon": ""
+      },
+      {
+        "name": "Intro",
+        "id": 140500,
+        "link": "/pages/Intro",
+        "icon": ""
+      },
+      {
+        "name": "Master",
+        "id": 140600,
+        "link": "/pages/Master",
+        "icon": ""
+      },
+      {
+        "name": "Google Map",
+        "id": 140700,
+        "link": "/pages/GoogleMap",
+        "icon": ""
+      },
+      {
+        "name": "Signin",
+        "id": 140800,
+        "link": "/pages/SignIn",
+        "icon": ""
+      },
+      {
+        "name": "Signup",
+        "id": 140900,
+        "link": "/pages/SignUp",
+        "icon": ""
+      },
+      {
+        "name": "404",
+        "id": 141000,
+        "link": "/pages/ErrPage",
+        "icon": ""
+      }
+    ]
+  },
+  {
+    "name": "Message",
+    "id": 150000,
+    "link": "/Message",
+    "icon": "fa-address-book"
+  },
+  {
+    "name": "Notes",
+    "id": 160000,
+    "link": "/Notes",
+    "icon": "fa-address-book"
+  }
+]
