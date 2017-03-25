@@ -224,5 +224,11 @@
     "id": 160000,
     "link": "/Notes",
     "icon": "fa-address-book"
+  },
+  {
+    "name": "Documentation",
+    "id": 170000,
+    "link": "/Documentation",
+    "icon": "fa-address-book"
   }
 ]

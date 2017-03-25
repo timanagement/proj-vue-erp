@@ -149,8 +149,7 @@
     components: {},
     watch: {},
     methods: {},
-    created () {
-
+    mounted () {
     }
   }
 </script>

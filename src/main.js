@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 
 /* 路由 */
-import router from './config/router'
+import router from './router/index'
 
 /* 引入异步请求插件 */
 import axios from 'axios'
@@ -27,8 +27,9 @@ import '@/assets/style/index.less'
 // 不显示控制台提示信息
 Vue.config.productionTip = false
 
+
 router.beforeEach((to, from, next) => {
-  if (!sessionStorage.getItem('user') && to.path !== '/signin') {
+  if (!localStorage.getItem('user') && to.path !== '/signin') {
     next('/signin');
   } else {
     NProgress.start();

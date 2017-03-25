@@ -1,6 +1,6 @@
 <template>
   <section class="vbox">
-    <header-nav></header-nav>
+    <head-nav></head-nav>
     <!-- 主体内容 -->
     <section>
       <section class="hbox stretch">
@@ -17,13 +17,12 @@
 </template>
 
 <script>
-  import HeaderNav from '@/pages/common/HeadNav'
-  import AsideNav from '@/pages/common/AsideNav'
+  import {HeadNav,AsideNav} from '@/components/nav/'
   export default{
     data () {
       return {}
     },
-    components: {HeaderNav, AsideNav},
+    components: {HeadNav,AsideNav},
     watch: {},
     methods: {},
     created () {
