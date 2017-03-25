@@ -1,0 +1,18 @@
+{
+  "status": 200,
+  "data": {
+    "userinfo": {
+      "id": 79,
+      "pid": 78,
+      "username": "a",
+      "email": "rerersls@1.com",
+      "password": "123456",
+      "sex": "2",
+      "status": 1,
+      "create_time": "2017-02-02 02:35:04",
+      "birthday": "1994-12-16",
+      "address": "工具工具很干净1f+1",
+      "token": "86dcfa9c21aa92f697fe13438624bc86"
+    }
+  }
+}
