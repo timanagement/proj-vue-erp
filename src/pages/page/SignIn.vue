@@ -1,30 +1,27 @@
-
 <template>
   <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
-    <div class="container aside-xxl"> <a class="navbar-brand block" href="index.html">Notebook</a>
+    <div class="container aside-xxl"><a class="navbar-brand block" href="index.html">Notebook</a>
       <section class="panel panel-default bg-white m-t-lg">
-        <header class="panel-heading text-center"> <strong>Sign in</strong> </header>
+        <header class="panel-heading text-center"><strong>Sign in</strong></header>
         <form action="index.html" class="panel-body wrapper-lg">
           <div class="form-group">
             <label class="control-label">Email</label>
-            <input type="email" placeholder="test@example.com" class="form-control input-lg">
+            <input type="email" placeholder="test@example.com" class="form-control input-lg" v-model="user.name">
           </div>
           <div class="form-group">
             <label class="control-label">Password</label>
-            <input type="password" id="inputPassword" placeholder="Password" class="form-control input-lg">
+            <input type="password" id="inputPassword" placeholder="Password" class="form-control input-lg"
+                   v-model="user.pwd">
           </div>
           <div class="checkbox">
             <label>
               <input type="checkbox">
               Keep me logged in </label>
           </div>
-          <a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a>
-          <button type="submit" class="btn btn-primary">Sign in</button>
-          <div class="line line-dashed"></div>
-          <a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a> <a href="#" class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
-          <div class="line line-dashed"></div>
-          <p class="text-muted text-center"><small>Do not have an account?</small></p>
-          <a href="signup.html" class="btn btn-default btn-block">Create an account</a>
+          <a href="#" class="pull-right m-t-xs">
+            <small>Forgot password?</small>
+          </a>
+          <button type="button" @click="submit" class="btn btn-primary">Sign in</button>
         </form>
       </section>
     </div>
@@ -34,11 +31,23 @@
 <script>
   export default{
     data () {
-      return {}
+      return {
+        user: {
+          name: '',
+          pwd: ''
+        }
+      }
     },
     components: {},
     watch: {},
-    methods: {},
+    methods: {
+      submit(){
+        if(this.user.name && this.user.pwd){
+            localStorage.setItem('user',JSON.stringify(this.user));
+            this.$router.replace('/');
+        }
+      }
+    },
     created () {
       document.querySelector('html').className = 'bg-dark';
     }
