@@ -35,6 +35,7 @@
 <script>
   import {user as UserApi} from '@/config/request.js';
   export default{
+    name: 'signin',
     data () {
       return {
         remember: this.$store.state.user.remember,

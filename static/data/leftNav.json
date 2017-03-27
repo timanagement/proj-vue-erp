@@ -2,7 +2,7 @@
   {
     "name": "Workset",
     "id": 110000,
-    "link": "/",
+    "link": "/Workset",
     "icon": "fa-address-book"
   },
   {
@@ -196,7 +196,7 @@
       {
         "name": "Signin",
         "id": 140800,
-        "link": "/pages/SignIn",
+        "link": "/SignIn",
         "icon": ""
       },
       {

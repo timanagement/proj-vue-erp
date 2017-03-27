@@ -15,7 +15,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 /* 路由 */
-import router from './router/index'
+import router from './router/'
 
 /* vuex store */
 import store from './store/';
@@ -25,11 +25,11 @@ import App from './App'
 
 /* 路由遍历回调 */
 router.beforeEach((to, from, next) => {
-  if (!store.state.user.userinfo.token && to.path !== '/signin') {
+  if (!store.state.user.userinfo.token && to.path.toLocaleLowerCase() !== '/signin') {
     store.dispatch('remove_userinfo');
     next('/signin');
   } else {
-    if (store.state.user.userinfo.token && to.path === '/signin') {
+    if (store.state.user.userinfo.token && to.path.toLocaleLowerCase() === '/signin') {
       next({
         path: '/'
       });
@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
   }
 })
 /* 路由遍历结束回调 */
-router.afterEach(transition => {
+router.afterEach(() => {
   NProgress.done();
 });
 

@@ -223,7 +223,7 @@
             <!-- .comment-reply -->
             <article id="comment-id-2" class="comment-reply">
               <article class="comment-item"><a class="pull-left thumb-sm"> <img
-                      src="../../assets/images/avatar_default.jpg" class="img-circle"> </a>
+                src="../../assets/images/avatar_default.jpg" class="img-circle"> </a>
                 <section class="comment-body m-b-lg">
                   <header><a href="#"><strong>John smith</strong></a> <span
                     class="text-muted text-xs"> 26 minutes ago </span></header>
@@ -231,7 +231,7 @@
                 </section>
               </article>
               <article class="comment-item"><a class="pull-left thumb-sm"> <img
-                      src="../../assets/images/avatar.jpg" class="img-circle"> </a>
+                src="../../assets/images/avatar.jpg" class="img-circle"> </a>
                 <section class="comment-body m-b-lg">
                   <header><a href="#"><strong>Mike</strong></a> <span
                     class="text-muted text-xs"> 26 minutes ago </span></header>
@@ -268,8 +268,8 @@
 </template>
 
 <script>
-  //import '@/plugins/calendar/bootstrap_calendar.css'
   export default{
+    name: "workset",
     data () {
       return {}
     },

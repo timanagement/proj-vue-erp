@@ -660,6 +660,7 @@
 
 <script>
   export default{
+    name: 'documentation',
     data () {
       return {}
     },

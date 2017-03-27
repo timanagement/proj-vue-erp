@@ -168,7 +168,7 @@
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '取消退出登录'
+            message: '已取消'
           });
         });
       },

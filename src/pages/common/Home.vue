@@ -17,12 +17,13 @@
 </template>
 
 <script>
-  import {HeadNav,AsideNav} from '@/components/nav/'
+  import {HeadNav, AsideNav} from '@/components/nav/'
   export default{
+    name: 'home',
     data () {
       return {}
     },
-    components: {HeadNav,AsideNav},
+    components: {HeadNav, AsideNav},
     watch: {},
     methods: {},
     created () {

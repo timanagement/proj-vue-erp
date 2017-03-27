@@ -1,6 +1,6 @@
 # SX ERP
 
-> 自适应后台管理系统.
+> 使用vue构建的自适应企业ERP系统.
 
 **主要技术栈:**
 * [vue2.0](https://cn.vuejs.org/v2/guide/)
@@ -13,7 +13,9 @@
 * [nodejs](http://nodejs.cn/)
 * [webpack](http://webpackdoc.com/)
 
-**_[vue教程](https://github.com/GiantZero-x/vue-tutorials)_**
+**相关教程:**
+* [vue教程](https://github.com/GiantZero-x/vue-tutorials)
+* [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 
 ## 如何运行
 
@@ -99,7 +101,8 @@ SX-ERP 项目主目录
 ├─static                    纯静态资源文件目录
 │  ├─data                     模拟数据目录
 │  ├─ie                       IE兼容性目录
-│  └─splugins                 插件目录
+│  ├─splugins                 插件目录
+│  └─ ... 
 │
 ├─.babelrc                  babel 配置
 ├─.editorconfig             编辑器 配置

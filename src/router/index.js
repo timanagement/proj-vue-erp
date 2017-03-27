@@ -2,14 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // import pages
-import Index from '@/pages/'
-
-import Workset from '@/pages/common/Workset'
-import ErrPage from '@/pages/common/ErrPage'
-import SignIn from '@/pages/page/SignIn'
-import Documentation from '@/pages/page/Documentation'
-
-
+import pages from '@/pages/index.js'
 Vue.use(Router)
 
 export default new Router({
@@ -17,20 +10,26 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index,
+      component: pages.common.Home,
       children: [
-        {path: '', redirect: to => {return 'Workset'}},
-        {path: 'Workset', component: Workset},
-        {path: 'Documentation', component: Documentation},
+        {
+          path: '', redirect: to => {
+          return 'WorkSet'
+        }
+        },
+        {path: 'WorkSet', name: 'workset', component: pages.WorkSet},
+        {path: 'Documentation', name: 'documentation', component: pages.page.Documentation},
       ]
     },
     {
-      path: '/signin',
-      component: SignIn
+      path: '/SignIn',
+      name: 'signin',
+      component: pages.common.SignIn
     },
     {
       path: '*',
-      component: ErrPage
+      name: '404',
+      component: pages.common.ErrPage
     }
   ]
 })
