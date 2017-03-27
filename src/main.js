@@ -1,42 +1,45 @@
 import Vue from 'vue'
-
-/* 根组件 */
-import App from './App'
-
-/* 路由 */
-import router from './router/index'
-
-/* 引入异步请求插件 */
-import axios from 'axios'
-axios.defaults.baseURL = '/static/data/';
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios)
+/* 不显示控制台提示信息 */
+Vue.config.productionTip = false
 
 /* element-ui */
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI)
 
-// 页面顶部进度条
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-
 /* 主css */
 import '@/assets/style/index.less'
 
-// 不显示控制台提示信息
-Vue.config.productionTip = false
+/* 页面顶部进度条 */
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
+/* 路由 */
+import router from './router/index'
 
+/* vuex store */
+import store from './store/';
+
+/* 根组件 */
+import App from './App'
+
+/* 路由遍历回调 */
 router.beforeEach((to, from, next) => {
-  if (!localStorage.getItem('user') && to.path !== '/signin') {
+  if (!store.state.user.userinfo.token && to.path !== '/signin') {
+    store.dispatch('remove_userinfo');
     next('/signin');
   } else {
-    NProgress.start();
-    next();
+    if (store.state.user.userinfo.token && to.path === '/signin') {
+      next({
+        path: '/'
+      });
+    } else {
+      NProgress.start();
+      next();
+    }
   }
 })
-
+/* 路由遍历结束回调 */
 router.afterEach(transition => {
   NProgress.done();
 });
@@ -44,6 +47,7 @@ router.afterEach(transition => {
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {App}
 })

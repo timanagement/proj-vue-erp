@@ -95,7 +95,7 @@
         </section>
       </li>
       <li class="dropdown hidden-xs">
-        <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+        <a href="#" @click="logout" class="dropdown-toggle dker" data-toggle="dropdown">
           <i class="fa fa-fw fa-search"></i>
         </a>
         <section class="dropdown-menu aside-xl animated fadeInUp">
@@ -148,7 +148,31 @@
     },
     components: {},
     watch: {},
-    methods: {},
+    methods: {
+      /**
+       * 退出登录
+       */
+      logout() {
+        this.$confirm('你确定退出登录么?', '确认退出', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$store.dispatch('remove_userinfo').then(() => {
+            this.$message({
+              type: 'success',
+              message: '成功退出登录'
+            });
+            this.$router.push('/signin');
+          }).catch(e => console.log('移除用户信息出错:' + e));
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消退出登录'
+          });
+        });
+      },
+    },
     mounted () {
     }
   }

@@ -1,5 +1,3 @@
-module.exports = {
-	routes: require('./../router/router.js'),
-	settings: require('./settings.js'),
-	request: require('./request.js')
-};
+import settings from './settings.js'
+import request from './request.js'
+export {settings, request}
