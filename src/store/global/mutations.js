@@ -19,6 +19,6 @@ export default {
     state.show_notification = !state.show_notification;
   },
   [types.HIDE_NOTIFICATION](state) {
-    state.show_notification = !state.show_notification;
+    state.show_notification = false;
   },
 };
