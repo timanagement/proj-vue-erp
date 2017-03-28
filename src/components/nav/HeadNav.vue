@@ -70,20 +70,7 @@
               <strong v-else>暂无通知</strong>
             </header>
             <div class="list-group list-group-alt animated fadeInRight">
-              <a href="javascript:" class="media list-group-item">
-                <span class="pull-left thumb-sm">
-                    <img src="../../assets/images/avatar.jpg" alt="John said" class="img-circle">
-                </span>
-                <span class="media-body block m-b-none">
-                  Use awesome animate.css<br>
-                  <small class="text-muted">10 minutes ago</small>
-                </span>
-              </a>
-              <a href="javascript:" class="media list-group-item">
-                <span class="media-body block m-b-none"> 1.0 initial released<br>
-                    <small class="text-muted">1 hour ago</small>
-                </span>
-              </a>
+              <notification-item v-for="item in notification" :item="item" :key="item.id"></notification-item>
             </div>
             <footer class="panel-footer text-sm">
               <a href="#" class="pull-right">
@@ -96,10 +83,8 @@
       </li>
       <!-- 查询框 -->
       <li class="dropdown hidden-xs">
-        <a href="#" @click="logout" class="dropdown-toggle dker" data-toggle="dropdown">
-          <i class="fa fa-fw fa-search"></i>
-        </a>
-        <section class="dropdown-menu aside-xl animated fadeInUp">
+        <a href="javascript:" @click="logout" class="dropdown-toggle dker">退出</a>
+        <!--<section class="dropdown-menu aside-xl animated fadeInUp">
           <section class="panel bg-white">
             <form role="search">
               <div class="form-group wrapper m-b-none">
@@ -114,7 +99,7 @@
               </div>
             </form>
           </section>
-        </section>
+        </section>-->
       </li>
       <!-- 账户信息 -->
       <li class="dropdown">
@@ -144,16 +129,19 @@
 
 <script>
   import screenfull from 'screenfull'
+  import {listItem} from '@/components'
+  import {InfoApi} from '@/config'
+
   export default{
     name: 'header-nav',
     data () {
       return {
-        notification:[
-
-        ]
+        notification:[]
       }
     },
-    components: {},
+    components: {
+      'notification-item':listItem.notificationItem
+    },
     watch: {},
     methods: {
       /**
@@ -205,9 +193,18 @@
         if (screenfull.enabled) {
           screenfull.toggle();
         }
+      },
+      /**
+       * 读取头部消息
+       * */
+      readNotification(id){
+        console.log(id)
       }
     },
-    mounted () {
+    beforeMount () {
+      InfoApi.getNotification(data=>{
+        this.notification = data
+      });
     }
   }
 </script>

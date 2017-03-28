@@ -34,7 +34,7 @@
 </template>
 
 <script>
-  import {user as UserApi} from '@/config/request.js';
+  import {UserApi} from '@/config';
   export default{
     name: 'signin',
     data () {
@@ -63,7 +63,7 @@
             message: '长度在 6 到 16 个字符',
             trigger: 'blur'
 
-          }],
+          }]
         }
       }
     },

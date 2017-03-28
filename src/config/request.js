@@ -4,7 +4,7 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
 //导入封装的回调函数
-import {cbs, gbs} from './settings.js';
+import {cbs, gbs} from './settings';
 
 //动态设置本地和线上接口域名
 Vue.axios.defaults.baseURL = gbs.host;
@@ -22,9 +22,9 @@ Vue.axios.defaults.baseURL = gbs.host;
 const ajax = function (type, url, data, fn, tokenFlag, errFn) {
 
   // tokenFlag为假时设置data的token
-  if (tokenFlag !== true) {
+  /*if (tokenFlag !== true) {
     data.token = this.$store.state.user.userinfo.token;
-  }
+  }*/
   // 设置传参的格式
   data = type === 'get' ? {params: data} : data;
 
@@ -56,7 +56,7 @@ const ajax = function (type, url, data, fn, tokenFlag, errFn) {
 /**
  * 用户信息
  */
-const user = {
+const UserApi = {
     /**
      * 登录
      * @param {object}    data          参数
@@ -146,7 +146,7 @@ const user = {
   /**
    * 系统设置
    */
-  system = {
+  SysApi = {
     /**
      * 获取系统设置信息
      * @param  {Function} fn 成功回调
@@ -163,8 +163,17 @@ const user = {
     updateSetting(data, fn) {
       ajax.call(this, 'post', '/System/updateSetting', data, fn);
     }
+  },
+  InfoApi = {
+    /**
+     * 获取头部消息列表
+     * @param  {Function} fn 成功回调
+     */
+    getNotification(fn) {
+      ajax.call(this, 'get', 'notification.json', {}, fn);
+    },
   };
 
-export {user, system}
+export {UserApi, SysApi, InfoApi}
 
 
