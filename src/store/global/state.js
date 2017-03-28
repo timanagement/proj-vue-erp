@@ -1,3 +1,6 @@
 export default {
-  ajax_loading: false
+  show_leftNav: false,
+  mini_leftNav: false,
+  show_user: false,
+  show_notification: false
 };

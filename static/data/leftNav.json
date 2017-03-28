@@ -1,35 +1,15 @@
 [
   {
-    "name": "Workset",
+    "name": "首页",
     "id": 110000,
     "link": "/Workset",
     "icon": "fa-address-book"
   },
   {
-    "name": "Layouts",
+    "name": "待办事宜",
     "id": 120000,
     "link": "/layouts",
-    "icon": "fa-address-book",
-    "children": [
-      {
-        "name": "Color option",
-        "id": 110100,
-        "link": "/layouts/ColorOption",
-        "icon": ""
-      },
-      {
-        "name": "Right nav",
-        "id": 110200,
-        "link": "/layouts/RightNav",
-        "icon": ""
-      },
-      {
-        "name": "H-Layout",
-        "id": 110300,
-        "link": "/layouts/HLayout",
-        "icon": ""
-      }
-    ]
+    "icon": "fa-address-book"
   },
   {
     "name": "UI kit",

@@ -16,6 +16,7 @@
 **相关教程:**
 * [vue教程](https://github.com/GiantZero-x/vue-tutorials)
 * [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
+* [Notebook 布局预览](http://yiwu8.com/tpl/Notebook/)
 
 ## 如何运行
 

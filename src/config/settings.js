@@ -2,15 +2,15 @@
 const gbs = {
     // 接口根地址。本地代理可在/config/index.js -> proxyTable中配置
     /*
-     * proxyTable: {
-     '/static/data/': {
-     target: 'http://xxxxxx.com',
-     changeOrigin: true,
-     pathRewrite: {
-     '^/static/data/': ''
-     }
-     }
-     },
+     *  proxyTable: {
+     *    '/static/data/': {
+     *      target: 'http://xxxxxx.com',
+     *      changeOrigin: true,
+     *      pathRewrite: {
+     *        '^/static/data/': ''
+     *      }
+     *    }
+     *  },
      * */
     host: '/static/data/',
     // 本地存储的key

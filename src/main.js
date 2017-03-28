@@ -15,14 +15,15 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 /* 路由 */
-import router from './router/'
+import router from './router'
 
 /* vuex store */
-import store from './store/';
+import store from './store';
 
 /* 根组件 */
 import App from './App'
 
+import {scroll} from '@/util'
 /* 路由遍历回调 */
 router.beforeEach((to, from, next) => {
   if (!store.state.user.userinfo.token && to.path.toLocaleLowerCase() !== '/signin') {
@@ -42,6 +43,12 @@ router.beforeEach((to, from, next) => {
 /* 路由遍历结束回调 */
 router.afterEach(() => {
   NProgress.done();
+  /* 隐藏导航 */
+  store.dispatch('hide_leftNav');
+  /* body滚动至顶部 */
+  scroll.inchingScroll(document.body.scrollTop, 0, 4, function (value) {
+    document.body.scrollTop = value;
+  })
 });
 
 new Vue({

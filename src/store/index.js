@@ -4,10 +4,9 @@ Vue.use(Vuex);
 
 import user from './userinfo'
 import global from './global'
-
 export default new Vuex.Store({
-    modules: {
-      user,
-      global
-    }
+  modules: {
+    user,
+    global,
+  }
 });

@@ -1,10 +1,10 @@
 <template>
-  <router-view></router-view>
+  <div>11</div>
 </template>
 
 <script>
   export default{
-    name: 'app',
+    name: 'notification-item',
     data () {
       return {}
     },

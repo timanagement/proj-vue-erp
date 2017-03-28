@@ -1,6 +1,6 @@
 <template>
   <!-- .左侧导航 -->
-  <aside class="bg-dark lter aside-md hidden-print" id="nav">
+  <aside class="bg-dark lter aside-md hidden-print" id="nav" :class="{'nav-off-screen':this.$store.state.global.show_leftNav,'nav-xs':this.$store.state.global.mini_leftNav}">
     <section class="vbox">
       <section class="w-f scrollable">
         <div class="slim-scroll" data-height="auto" data-disable-fade-out="true"
@@ -57,8 +57,7 @@
             </section>
           </section>
         </div>
-        <a href="#nav" data-toggle="class:nav-xs"
-           class="pull-right btn btn-sm btn-dark btn-icon">
+        <a href="javascript:" class="pull-right btn btn-sm btn-dark btn-icon" @click="toggle_show_leftnav" :class="{'active':this.$store.state.global.mini_leftNav}">
           <i class="fa fa-angle-left text"></i>
           <i class="fa fa-angle-right text-active"></i>
         </a>
@@ -87,7 +86,13 @@
     },
     components: {},
     watch: {},
-    methods: {},
+    methods: {
+      /**
+       * 显示隐藏迷你侧边导航 (PC端下)*/
+      toggle_show_leftnav(){
+        this.$store.dispatch('toggle_mini_leftnav');
+      }
+    },
     created () {
       this.$http.get('leftNav.json').then(res=>this.menuList = res.data).catch(err=>console.log(err))
     }

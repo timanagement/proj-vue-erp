@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // import pages
-import pages from '@/pages/index.js'
+import pages from '@/pages'
 Vue.use(Router)
 
 export default new Router({
@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       path: '*',
-      name: '404',
+      name: 'errpage',
       component: pages.common.ErrPage
     }
   ]

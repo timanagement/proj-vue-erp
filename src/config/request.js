@@ -21,9 +21,6 @@ Vue.axios.defaults.baseURL = gbs.host;
  */
 const ajax = function (type, url, data, fn, tokenFlag, errFn) {
 
-  // 分发显示加载样式任务
-  this.$store.dispatch('show_loading');
-
   // tokenFlag为假时设置data的token
   if (tokenFlag !== true) {
     data.token = this.$store.state.user.userinfo.token;
@@ -42,10 +39,8 @@ const ajax = function (type, url, data, fn, tokenFlag, errFn) {
         errFn && errFn.call(this);
       }
     }
-    this.$store.dispatch('hide_loading');
   }).catch((err) => {
     //调用全局配置ajax请求网络出错时回调
-    this.$store.dispatch('hide_loading');
     cbs.requestError.call(this, err);
     errFn && errFn.call(this);
   });

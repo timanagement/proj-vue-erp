@@ -1,11 +1,8 @@
 import * as types from './mutations_types';
 
 export default {
-  update_userinfo: ({
-    commit
-  }, {
-    userinfo
-  }) => {
+  /* 更新用户信息 */
+  update_userinfo ({commit}, {userinfo}) {
     return new Promise((resolve, reject) => {
       commit(types.UPDATE_USERINFO, {
         userinfo
@@ -14,22 +11,16 @@ export default {
     });
   },
 
-  remove_userinfo: ({
-    commit
-  }) => {
+  /* 移除用户信息 */
+  remove_userinfo ({commit}) {
     return new Promise((resolve, reject) => {
       commit(types.REMOVE_USERINFO);
       resolve()
     });
   },
 
-
-  update_remember: ({
-    commit
-  }, {
-    remember_flag,
-    remember_login_info
-  }) => {
+  /* 更新记住密码信息 */
+  update_remember ({commit}, {remember_flag, remember_login_info}) {
     return new Promise((resolve, reject) => {
       commit(types.UPDATE_REMEMBER, {
         remember_flag,
@@ -39,9 +30,8 @@ export default {
     });
   },
 
-  remove_remember: ({
-    commit
-  }) => {
+  /* 移除记住密码信息 */
+  remove_remember ({commit}) {
     return new Promise((resolve, reject) => {
       commit(types.REMOVE_REMEMBER);
       resolve()

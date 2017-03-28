@@ -1,21 +1,24 @@
 <template>
   <!-- 头部 -->
   <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+    <!-- 左侧logo及移动端菜单和用户信息控制按钮 -->
     <div class="navbar-header aside-md">
-      <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+      <a class="btn btn-link visible-xs" @click="toggle_show_leftnav"
+         :class="{'active':this.$store.state.global.show_leftNav}">
         <i class="fa fa-bars"></i>
       </a>
-      <router-link to='/' class="navbar-brand" data-toggle="fullscreen">
-        <img src="../../assets/images/logo.png" class="m-r-sm">
-        Notebook
-      </router-link>
-      <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+      <a href='javascript:' class="navbar-brand" @click="screenfull">
+        <img src="../../assets/images/logo.png" class="m-r-sm">SX ERP
+      </a>
+      <a class="btn btn-link visible-xs" @click="toggle_show_user"
+         :class="{'active':this.$store.state.global.show_user}">
         <i class="fa fa-cog"></i>
       </a>
     </div>
-    <ul class="nav navbar-nav hidden-xs">
+    <!-- 活动 -->
+    <!--<ul class="nav navbar-nav hidden-xs">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+        <a href="javascript:" class="dropdown-toggle dker" data-toggle="dropdown">
           <i class="fa fa-building-o"></i>
           <span class="font-bold">活动</span>
         </a>
@@ -51,38 +54,35 @@
           </div>
         </section>
       </li>
-      <li>
-        <div class="m-t m-l">
-          <router-link to="/home" class="dropdown-toggle btn btn-xs btn-primary" title="Upgrade">
-            <i class="fa fa-long-arrow-up"></i>
-          </router-link>
-        </div>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
-      <li class="hidden-xs">
-        <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+    </ul>-->
+    <!-- 右侧 -->
+    <ul class="nav navbar-nav navbar-right hidden-xs nav-user" :class="{'open':this.$store.state.global.show_user}">
+      <!-- 通知信息 -->
+      <li class="hidden-xs" :class="{'open':this.$store.state.global.show_notification}">
+        <a href="javascript:" class="dropdown-toggle dk" @click.stop="toggle_show_notification">
           <i class="fa fa-bell"></i>
-          <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+          <span class="badge badge-sm up bg-danger m-l-n-sm count" v-show="notification.length">{{notification.length}}</span>
         </a>
         <section class="dropdown-menu aside-xl">
           <section class="panel bg-white">
             <header class="panel-heading b-light bg-light">
-              <strong>你有 <span class="count">2</span> 条通知</strong>
+              <strong v-if="notification.length">你有 <span class="count">{{notification.length}}</span> 条通知</strong>
+              <strong v-else>暂无通知</strong>
             </header>
             <div class="list-group list-group-alt animated fadeInRight">
-              <a href="#" class="media list-group-item">
-                              <span class="pull-left thumb-sm">
-                                  <img src="../../assets/images/avatar.jpg" alt="John said" class="img-circle">
-                              </span>
-                <span class="media-body block m-b-none"> Use awesome animate.css<br>
-                                  <small class="text-muted">10 minutes ago</small>
-                              </span>
+              <a href="javascript:" class="media list-group-item">
+                <span class="pull-left thumb-sm">
+                    <img src="../../assets/images/avatar.jpg" alt="John said" class="img-circle">
+                </span>
+                <span class="media-body block m-b-none">
+                  Use awesome animate.css<br>
+                  <small class="text-muted">10 minutes ago</small>
+                </span>
               </a>
-              <a href="#" class="media list-group-item">
-                              <span class="media-body block m-b-none"> 1.0 initial released<br>
-                                  <small class="text-muted">1 hour ago</small>
-                              </span>
+              <a href="javascript:" class="media list-group-item">
+                <span class="media-body block m-b-none"> 1.0 initial released<br>
+                    <small class="text-muted">1 hour ago</small>
+                </span>
               </a>
             </div>
             <footer class="panel-footer text-sm">
@@ -94,6 +94,7 @@
           </section>
         </section>
       </li>
+      <!-- 查询框 -->
       <li class="dropdown hidden-xs">
         <a href="#" @click="logout" class="dropdown-toggle dker" data-toggle="dropdown">
           <i class="fa fa-fw fa-search"></i>
@@ -115,6 +116,7 @@
           </section>
         </section>
       </li>
+      <!-- 账户信息 -->
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="thumb-sm avatar pull-left">
@@ -133,7 +135,7 @@
           </li>
           <li><a href="docs.html">帮助</a></li>
           <li class="divider"></li>
-          <li><a href="modal.lockme.html" data-toggle="ajaxModal">注销</a></li>
+          <li><a href="javascript:" data-toggle="ajaxModal" @click="logout">注销</a></li>
         </ul>
       </li>
     </ul>
@@ -141,10 +143,15 @@
 </template>
 
 <script>
+  import screenfull from 'screenfull'
   export default{
     name: 'header-nav',
     data () {
-      return {}
+      return {
+        notification:[
+
+        ]
+      }
     },
     components: {},
     watch: {},
@@ -161,17 +168,44 @@
           this.$store.dispatch('remove_userinfo').then(() => {
             this.$message({
               type: 'success',
-              message: '成功退出登录'
+              message: '成功退出登录',
+              showClose: true
             });
             this.$router.push('/signin');
           }).catch(e => console.log('移除用户信息出错:' + e));
         }).catch(() => {
           this.$message({
-            type: 'info',
-            message: '已取消'
+            message: '已取消',
+            showClose: true
           });
         });
       },
+      /**
+       * 显示隐藏侧边导航 (移动端下)
+       * */
+      toggle_show_leftnav(){
+        this.$store.dispatch('toggle_show_leftnav');
+      },
+      /**
+       * 显示隐藏用户信息 (移动端下)
+       * */
+      toggle_show_user(){
+        this.$store.dispatch('toggle_show_user');
+      },
+      /**
+       * 显示隐藏用户信息 (移动端下)
+       * */
+      toggle_show_notification(){
+        this.$store.dispatch('toggle_show_notification');
+      },
+      /**
+       * 全屏/取消全屏
+       * */
+      screenfull(){
+        if (screenfull.enabled) {
+          screenfull.toggle();
+        }
+      }
     },
     mounted () {
     }
