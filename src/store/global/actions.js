@@ -62,7 +62,7 @@ export default {
   /**
    * 隐藏通知信息
    * */
-  hide_notifation ({commit}) {
+  hide_notification ({commit}) {
     return new Promise((resolve, reject) => {
       commit(types.HIDE_NOTIFICATION);
       resolve()
