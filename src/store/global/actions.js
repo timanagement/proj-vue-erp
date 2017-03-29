@@ -68,4 +68,22 @@ export default {
       resolve()
     });
   },
+  /**
+   * 显示隐藏全部通知信息
+   * */
+  toggle_show_all_notification ({commit}) {
+    return new Promise((resolve, reject) => {
+      commit(types.TOGGLE_SHOW_ALL_NOTIFICATION);
+      resolve()
+    });
+  },
+  /**
+   * 隐藏全部通知信息
+   * */
+  hide_all_notification ({commit}) {
+    return new Promise((resolve, reject) => {
+      commit(types.HIDE_ALL_NOTIFICATION);
+      resolve()
+    });
+  },
 };

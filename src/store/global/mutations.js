@@ -21,4 +21,10 @@ export default {
   [types.HIDE_NOTIFICATION](state) {
     state.show_notification = false;
   },
+  [types.TOGGLE_SHOW_ALL_NOTIFICATION](state) {
+    state.show_all_notification = !state.show_all_notification;
+  },
+  [types.HIDE_ALL_NOTIFICATION](state) {
+    state.show_all_notification = false;
+  },
 };

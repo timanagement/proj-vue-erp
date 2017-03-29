@@ -61,7 +61,8 @@
       <li class="hidden-xs" :class="{'open':this.$store.state.global.show_notification}">
         <a href="javascript:" class="dropdown-toggle dk" @click.stop="toggle_show_notification">
           <i class="fa fa-bell"></i>
-          <span class="badge badge-sm up bg-danger m-l-n-sm count" v-show="notification.length">{{notification.length}}</span>
+          <span class="badge badge-sm up bg-danger m-l-n-sm count"
+                v-show="notification.length">{{notification.length}}</span>
         </a>
         <section class="dropdown-menu aside-xl">
           <section class="panel bg-white">
@@ -73,33 +74,13 @@
               <notification-item v-for="item in notification" :item="item" :key="item.id"></notification-item>
             </div>
             <footer class="panel-footer text-sm">
-              <a href="#" class="pull-right">
+              <!--<a href="#" class="pull-right">
                 <i class="fa fa-cog"></i>
-              </a>
-              <a href="#notes" data-toggle="class:show animated fadeInRight">查看全部通知</a>
+              </a>-->
+              <a href="javascript:" @click.stop="toggle_show_all_notification" :class="{'active':this.$store.state.global.show_all_notification}">查看全部通知</a>
             </footer>
           </section>
         </section>
-      </li>
-      <!-- 查询框 -->
-      <li class="dropdown hidden-xs">
-        <a href="javascript:" @click="logout" class="dropdown-toggle dker">退出</a>
-        <!--<section class="dropdown-menu aside-xl animated fadeInUp">
-          <section class="panel bg-white">
-            <form role="search">
-              <div class="form-group wrapper m-b-none">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="查询">
-                  <span class="input-group-btn">
-                                      <button type="submit" class="btn btn-info btn-icon">
-                                          <i class="fa fa-search"></i>
-                                      </button>
-                                  </span>
-                </div>
-              </div>
-            </form>
-          </section>
-        </section>-->
       </li>
       <!-- 账户信息 -->
       <li class="dropdown">
@@ -123,24 +104,44 @@
           <li><a href="javascript:" data-toggle="ajaxModal" @click="logout">注销</a></li>
         </ul>
       </li>
+      <!-- 退出 -->
+      <li class="dropdown hidden-xs">
+        <a href="javascript:" @click="logout" class="dropdown-toggle dker">退出</a>
+        <!--<section class="dropdown-menu aside-xl animated fadeInUp">
+          <section class="panel bg-white">
+            <form role="search">
+              <div class="form-group wrapper m-b-none">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="查询">
+                  <span class="input-group-btn">
+                                      <button type="submit" class="btn btn-info btn-icon">
+                                          <i class="fa fa-search"></i>
+                                      </button>
+                                  </span>
+                </div>
+              </div>
+            </form>
+          </section>
+        </section>-->
+      </li>
     </ul>
   </header>
 </template>
 
 <script>
   import screenfull from 'screenfull'
-  import {listItem} from '@/components'
+  import listItem from '../listItem'
   import {InfoApi} from '@/config'
 
   export default{
     name: 'header-nav',
     data () {
       return {
-        notification:[]
+        notification: []
       }
     },
     components: {
-      'notification-item':listItem.notificationItem
+      'notification-item': listItem.NotificationItem
     },
     watch: {},
     methods: {
@@ -181,10 +182,16 @@
         this.$store.dispatch('toggle_show_user');
       },
       /**
-       * 显示隐藏用户信息 (移动端下)
+       * 显示隐藏通知信息
        * */
       toggle_show_notification(){
         this.$store.dispatch('toggle_show_notification');
+      },
+      /**
+       * 显示隐藏全部通知信息
+       * */
+      toggle_show_all_notification(){
+        this.$store.dispatch('toggle_show_all_notification');
       },
       /**
        * 全屏/取消全屏
@@ -194,15 +201,9 @@
           screenfull.toggle();
         }
       },
-      /**
-       * 读取头部消息
-       * */
-      readNotification(id){
-        console.log(id)
-      }
     },
     beforeMount () {
-      InfoApi.getNotification(data=>{
+      InfoApi.getNotification(data => {
         this.notification = data
       });
     }

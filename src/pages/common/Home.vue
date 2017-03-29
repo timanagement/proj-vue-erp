@@ -13,7 +13,7 @@
         </section>
 
         <!-- 右侧隐藏消息列表 -->
-        <aside class="bg-light lter b-l aside-md hide" id="notes">
+        <aside class="bg-light lter b-l aside-md hide" :class="{'show animated fadeInRight':this.$store.state.global.show_all_notification}" id="notes">
           <div class="wrapper">Notification</div>
         </aside>
       </section>

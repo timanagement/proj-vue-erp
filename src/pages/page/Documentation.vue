@@ -663,9 +663,7 @@
     components: {},
     watch: {},
     methods: {},
-    beforeMount () {
-    },
-    mounted(){
+    beforeMount(){
     },
     beforeDestroy(){
     },

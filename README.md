@@ -1,6 +1,6 @@
 # SX ERP
 
-> 使用vue构建的自适应企业ERP系统.
+> 使用vue构建的自适应企业ERP系统.后台端口808,前端809
 
 **主要技术栈:**
 * [vue2.0](https://cn.vuejs.org/v2/guide/)

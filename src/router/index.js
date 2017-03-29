@@ -18,7 +18,7 @@ export default new Router({
         }
         },
         {path: 'WorkSet', name: 'workset', component: pages.WorkSet},
-        {path: 'Documentation', name: 'documentation', component: pages.page.Documentation},
+        {path: 'Documentation/:id', name: 'documentation', component: pages.page.Documentation},
       ]
     },
     {
