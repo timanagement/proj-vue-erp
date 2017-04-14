@@ -3,7 +3,9 @@
  */
 import nav from './nav'
 import listItem from './listItem'
+import common from './common'
 export {
   nav,
-  listItem
+  listItem,
+  common
 }
