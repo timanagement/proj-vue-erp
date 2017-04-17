@@ -1,0 +1,39 @@
+import * as types from './mutations_types'
+export default {
+  [types.HIDE_POPUP](state) {
+    state.show_usersetting = state.show_notification = state.show_user = false;
+  },
+  [types.TOGGLE_SHOW_LEFTNAV](state) {
+    state.show_leftNav = !state.show_leftNav;
+  },
+  [types.TOGGLE_MINI_LEFTNAV](state) {
+    state.mini_leftNav = !state.mini_leftNav;
+  },
+  [types.HIDE_LEFTNAV](state) {
+    state.show_leftNav = false;
+  },
+  [types.TOGGLE_SHOW_USER](state) {
+    state.show_user = !state.show_user;
+  },
+  [types.HIDE_USER](state) {
+    state.show_user = false;
+  },
+  [types.TOGGLE_SHOW_NOTIFICATION](state) {
+    state.show_notification = !state.show_notification;
+  },
+  [types.HIDE_NOTIFICATION](state) {
+    state.show_notification = false;
+  },
+  [types.TOGGLE_SHOW_ALL_NOTIFICATION](state) {
+    state.show_all_notification = !state.show_all_notification;
+  },
+  [types.HIDE_ALL_NOTIFICATION](state) {
+    state.show_all_notification = false;
+  },
+  [types.TOGGLE_SHOW_USERSETTING](state) {
+    state.show_usersetting = !state.show_usersetting;
+  },
+  [types.HIDE_USERSETTING](state) {
+    state.show_usersetting = false;
+  },
+};

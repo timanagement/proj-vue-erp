@@ -1,0 +1,99 @@
+// element-ui
+@media (max-width: 450px) {
+  .el-message-box {
+    width: 80%;
+  }
+}
+
+.el-menu-item, .el-submenu {
+  [class*='fa-'] {
+    vertical-align: baseline;
+    margin-right: 10px;
+  }
+}
+
+/* 表单 */
+.el-select {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .el-radio + .el-radio {
+    margin-left: 5px;
+  }
+}
+
+/* 模态框 */
+.el-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  left: 0;
+  transform: none;
+}
+
+.el-dialog--full {
+  width: 100%;
+  top: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.el-dialog__body {
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .el-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .el-dialog--large {
+    width: 900px;
+  }
+}
+
+@media (min-width: 768px) {
+  .el-dialog--tiny {
+    width: 300px;
+  }
+}
+
+/* 分页 */
+@media (max-width: 768px) {
+  span.el-pagination__jump, span.el-pagination__total {
+    display: none;
+  }
+}
+
+/* 表格 */
+.el-table {
+  th, td {
+    text-align: center;
+  }
+
+}
+
+// 文档
+.fontawesome-icon-list i {
+  font-size: 14px;
+  width: 40px;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+.fontawesome-icon-list a {
+  line-height: 32px;
+  display: block;
+  white-space: nowrap;
+}
+
+.fontawesome-icon-list a:hover i {
+  font-size: 28px;
+  vertical-align: middle
+}

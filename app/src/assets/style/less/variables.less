@@ -1,0 +1,73 @@
+
+// 核心变量
+
+// 基础色系
+@brand-primary:         #65bd77;
+@brand-success:         #8ec165;
+@brand-info:            #4cc0c1;
+@brand-warning:         #ffc333;
+@brand-danger:          #fb6b5b;
+@brand-light:           #f1f1f1;
+@brand-dark:            #2e3e4e;
+@brand-black:           #282828;
+
+// body背景颜色
+@body-bg:               #fff;
+// 文字颜色
+@text-color:            #717171;
+@text-muted:            lighten(@text-color, 15%);
+
+// 字体
+@font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-base:        @font-family-sans-serif;
+
+//文字大小
+@font-size-base:          13px;
+@font-size-lg:            ceil(@font-size-base * 1.23); // ~16px
+@font-size-md:            ceil(@font-size-base * 1.07); // ~14px
+@font-size-sm:            ceil(@font-size-base * 0.92); // ~12px
+@font-size-xs:            ceil(@font-size-base * 0.84); // ~11px
+
+// 链接
+@link-color:              #2e3e4e;
+@link-hover-color:        lighten(@link-color, 15%);
+
+// 边框
+@border-radius-base:	    2px;
+@border-color:		  	    #e8e8e8;
+
+// 行高
+@line-height-base:        1.42857143; // 20/14
+@line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
+
+// 输入框边框
+@input-border:                   #d9d9d9;
+@input-border-focus:             @brand-info;
+@input-border-radius:            @border-radius-base;
+
+// 面板
+@panel-bg:                    	 #fff;
+@panel-border:                	 @border-color;
+@panel-border-radius:         	 @border-radius-base;
+@panel-heading-bg:            	 #fff;
+@panel-footer-bg:             	 #fff;
+
+// 小部件
+@tooltip-bg:                  	 rgba(0,0,0,.9);
+@tooltip-color:               @brand-dark;
+@tooltip-fallback-color:	 	  rgba(0,0,0,.9);
+@badge-bg:                       darken(@brand-light, 20%);
+
+// 箭头
+@arrow-width:         			  7px;
+@arrow-color:         			  #fff;
+@arrow-outer-width:   			  (@arrow-width + 1);
+@arrow-outer-color:   			  rgba(0,0,0,.1);
+@arrow-outer-fallback-color:  #eee;
+
+//导航
+@off-screen-nav-width:        75%;
+@nav-primary-height:          44px;
+@nav-xs-width:                55px;
+@nav-xs-height:               55px;
